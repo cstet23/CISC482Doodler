@@ -103,8 +103,8 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:id="@+id/canvas"
+        <com.example.cisc482doodler.DoodleView
+            android:id="@+id/doodleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
