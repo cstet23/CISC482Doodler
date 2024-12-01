@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/fullScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/taskbar"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:background="#BBBBBB"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/fullScreen"
+            app:layout_constraintStart_toEndOf="@+id/fullScreen">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <ImageButton
+                android:id="@+id/brushColor"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:backgroundTint="#EEE"
+                android:contentDescription="brush color"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toStartOf="@+id/guideline25"
+                app:layout_constraintStart_toStartOf="@+id/taskbar"
+                app:srcCompat="@drawable/color_wheel"
+                tools:ignore="HardcodedText" />
+
+            <ImageButton
+                android:id="@+id/brushSize"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:backgroundTint="#EEE"
+                android:contentDescription="brush size"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toStartOf="@+id/guideline50"
+                app:layout_constraintStart_toEndOf="@+id/guideline25"
+                app:srcCompat="@drawable/paint_brush"
+                tools:ignore="HardcodedText" />
+
+            <ImageButton
+                android:id="@+id/brushOpacity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:backgroundTint="#EEE"
+                android:contentDescription="brush opacity"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toStartOf="@+id/guideline75"
+                app:layout_constraintStart_toEndOf="@+id/guideline50"
+                app:srcCompat="@drawable/opacity"
+                tools:ignore="HardcodedText" />
+
+            <ImageButton
+                android:id="@+id/clearImage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:backgroundTint="#EEE"
+                android:contentDescription="clear image"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="@+id/taskbar"
+                app:layout_constraintStart_toEndOf="@+id/guideline75"
+                app:srcCompat="@drawable/trash"
+                tools:ignore="HardcodedText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/canvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
