@@ -1,7 +1,5 @@
 package com.example.cisc482doodler;
 
-import static java.lang.Math.random;
-
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -16,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import top.defaults.colorpicker.ColorPickerPopup;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,16 +36,36 @@ public class MainActivity extends AppCompatActivity {
         ImageButton brushColor = (ImageButton) findViewById(R.id.brushColor);
         brushColor.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
-                doodleview.changeColor(Color.RED);
-                brushColor.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                //doodleview.changeColor(Color.RED);
+                //brushColor.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                new ColorPickerPopup.Builder(MainActivity.this).initialColor(
+                    Color.RED)
+                        .enableBrightness(true) // color brightness slider
+                        .enableAlpha(false) // alpha slider
+                        .okTitle("Pick Color") // accept button
+                        .cancelTitle("Cancel") // close button
+                        .showIndicator(true) // chosen color
+                        .showValue(true) // selected hex code
+                    .build().show(v,new ColorPickerPopup.ColorPickerObserver() {
+                        @Override
+                        public void
+                        onColorPicked(int color) {
+                            // set returned color
+                            doodleview.setColor(color);
+
+                            // set button bg
+                            brushColor.setBackgroundTintList(ColorStateList.valueOf(color));
+                        }
+                });
                 return true;
             }
+
         });
 
         ImageButton brushSize = (ImageButton) findViewById(R.id.brushSize);
         brushSize.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
-                doodleview.changeSize(5);
+                doodleview.setSize(5);
                 return true;
             }
         });
@@ -53,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton brushOpacity = (ImageButton) findViewById(R.id.brushOpacity);
         brushOpacity.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
-                doodleview.changeOpacity(100);
+                doodleview.setOpacity(100);
                 return true;
             }
         });

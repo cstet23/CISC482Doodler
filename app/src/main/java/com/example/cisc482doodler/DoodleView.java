@@ -60,16 +60,16 @@ public class DoodleView extends View {
         return p.getColor();
     }
 
-    public void changeColor(@ColorInt int newColor) {
-        p.setColor(newColor);
+    public void setColor(@ColorInt int color) {
+        p.setColor(color);
     }
 
-    public void changeSize(int newSize) {
-        p.setStrokeWidth(newSize);
+    public void setSize(int size) {
+        p.setStrokeWidth(size);
     }
 
-    public void changeOpacity(int newOpacity) {
-        p.setAlpha(newOpacity);
+    public void setOpacity(int opacity) {
+        p.setAlpha(opacity);
     }
 
     public void clearImage() {
