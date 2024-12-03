@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/size1"
+        android:title="1px" />
+    <item
+        android:id="@+id/size2"
+        android:title="2px   " />
+    <item
+        android:id="@+id/size3"
+        android:title="3px      " />
+    <item
+        android:id="@+id/size4"
+        android:title="4px         " />
+    <item
+        android:id="@+id/size5"
+        android:title="5px            " />
+</menu>

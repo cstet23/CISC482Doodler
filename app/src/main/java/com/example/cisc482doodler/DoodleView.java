@@ -28,7 +28,7 @@ public class DoodleView extends View {
 
         p = new Paint();
         p.setColor(Color.BLACK);
-        p.setStrokeWidth(2);
+        p.setStrokeWidth(3);
         p.setAlpha(255);
         p.setStyle(Paint.Style.FILL);
 
@@ -60,15 +60,18 @@ public class DoodleView extends View {
         return p.getColor();
     }
 
-    public void changeColor(@ColorInt int newColor) {
+    public void setColor(@ColorInt int newColor) {
         p.setColor(newColor);
     }
 
-    public void changeSize(int newSize) {
+    public void setSize(int newSize) {
         p.setStrokeWidth(newSize);
     }
 
-    public void changeOpacity(int newOpacity) {
+    public int getOpacity() {
+        return p.getAlpha();
+    }
+    public void setOpacity(int newOpacity) {
         p.setAlpha(newOpacity);
     }
 
