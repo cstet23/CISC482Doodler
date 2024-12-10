@@ -117,6 +117,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton epicButton = findViewById(R.id.epicButton);
+        epicButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    int vPos = (int) (Math.random() * 540*3);
+                    int hPos = (int) (Math.random() * 321*3);
+                    doodleview.makeEpic(vPos, hPos);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         ImageButton clearImage = findViewById(R.id.clearImage);
         clearImage.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {

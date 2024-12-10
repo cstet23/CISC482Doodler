@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fullScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,7 +22,8 @@
             android:background="#BBBBBB"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="@+id/fullScreen"
-            app:layout_constraintStart_toEndOf="@+id/fullScreen">
+            app:layout_constraintStart_toEndOf="@+id/fullScreen"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline25"
@@ -55,9 +56,11 @@
                 android:padding="10dp"
                 android:scaleType="centerInside"
                 app:layout_constraintEnd_toStartOf="@+id/guideline25"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/taskbar"
                 app:srcCompat="@drawable/color_wheel"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                tools:layout_editor_absoluteY="-16dp" />
 
             <ImageButton
                 android:id="@+id/brushSize"
@@ -88,17 +91,17 @@
                 tools:ignore="HardcodedText" />
 
             <ImageButton
-                android:id="@+id/clearImage"
+                android:id="@+id/epicButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:backgroundTint="#EEE"
-                android:contentDescription="clear image"
+                android:contentDescription="do something funny"
                 android:padding="10dp"
                 android:scaleType="centerInside"
+                app:srcCompat="@drawable/epic_button"
                 app:layout_constraintEnd_toEndOf="@+id/taskbar"
                 app:layout_constraintStart_toEndOf="@+id/guideline75"
-                app:srcCompat="@drawable/trash"
                 tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -106,7 +109,27 @@
         <com.example.cisc482doodler.DoodleView
             android:id="@+id/doodleView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="635dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskbar" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/clearImage"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#EE0000"
+            android:contentDescription="clear image"
+            android:padding="20dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/doodleView"
+            app:srcCompat="@drawable/trash"
+            app:tint="#EEE"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
